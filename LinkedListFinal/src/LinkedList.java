@@ -1,4 +1,5 @@
 import javax.swing.plaf.nimbus.State;
+
 import java.util.Stack;
 
 public class LinkedList {
@@ -230,11 +231,7 @@ public class LinkedList {
     	}
     }
     
-    static void swap(Node n1, Node n2) {
-        int tmp = n2.getData();
-        n2.setData(n1.getData());
-        n1.setData(tmp);
-    }
+
     public void bubbleSortNode() {
     	boolean swapped;
     	if(head == null) {
@@ -293,6 +290,46 @@ public class LinkedList {
     		}
     		return -1;
     	}
+    public int max() {
+    	int max=head.getData();
+    	Node temp=head;
+    	while(temp != null) {
+    		if(temp.getData()> max) {
+    			max=temp.getData();
+    			
+    		}
+    		temp=temp.getNext();
+    	}
+    	return max;
+    }
+    
+    public int min() {
+    	int min=head.getData();
+    	Node temp=head;
+    	while(temp!=null) {
+    		if(temp.getData()<min) {
+    			min=temp.getData();
+    		}
+    		temp=temp.getNext();
+    	}
+    	return min;
+    }
+    
+    public int sum() {
+    	Node temp = head;
+		int sum = 0;
+		int count = 1;
+		
+		while(temp != null) {
+			int ele = temp.getData();
+			if(count % 2 == 0) {
+				sum = sum + ele;
+			}
+			count++;
+			temp = temp.getNext();
+		}
+    	return sum;
+    }
 }
 
 
